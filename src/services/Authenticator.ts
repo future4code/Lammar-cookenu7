@@ -1,4 +1,5 @@
 import * as jwt from "jsonwebtoken"
+import { Unauthorized } from "../error/UserError"
 import { Authentication } from "../model/authentication"
 
 export class Authenticator {
@@ -9,5 +10,15 @@ export class Authenticator {
             {expiresIn: "5h"}
         )
         return token
+    }
+
+    getTokenData = (token:string):Authentication=>{
+        try{
+            const payload = jwt.verify(token, process.env.JWT_KEY as string) as Authentication
+            return payload
+
+        }catch(error:any){
+            throw new Unauthorized()
+        }
     }
 }

@@ -1,7 +1,8 @@
 import { AnyTxtRecord } from "dns";
 import { UserDatabase } from "../data/UserDataBase";
 import { CustomError } from "../error/CustomError";
-import { InvalidEmail, InvalidPassword, NotNullEmail, NotNullName, NotNullPassword, PasswordIncorrect, UserNotFound } from "../error/UserError";
+import { InvalidEmail, InvalidPassword, NotNullEmail, NotNullName, NotNullPassword, NotNullToken, PasswordIncorrect, UserNotFound } from "../error/UserError";
+import { getUserDTO } from "../model/getUserDTO.";
 import { login } from "../model/login";
 import { user } from "../model/user";
 import { userInputDTO } from "../model/userDTO";
@@ -81,4 +82,21 @@ export class UserBusiness{
             throw new CustomError(400, error.message)
         }
     };
+
+    getUser = async (input:getUserDTO) =>{
+        try{
+            const {token} = input;
+
+            if(!token){
+                throw new NotNullToken();
+            }
+
+            const {id} = authenticator.getTokenData(token)
+
+            const userDatabase = new UserDatabase();
+            await userDatabase.getUser(id);
+        }catch(error:any){
+            throw new CustomError(400, error.message)
+        }
+    }
 }

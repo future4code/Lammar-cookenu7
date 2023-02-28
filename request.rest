@@ -15,3 +15,8 @@ Content-Type: application/json
     "email": "ramsey@email.com",
     "password": "souimune"
 }
+
+###
+
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiOTc1OGIzLWRmNTItNDYzMC1hYTJkLTFmMTU5Mjg4YWIwNiIsImlhdCI6MTY3NzYxNjE2NSwiZXhwIjoxNjc3NjM0MTY1fQ.FlnxDcMqwxARbqvT6LBe3HdBqMvFpsTn_KczRFazCaA
