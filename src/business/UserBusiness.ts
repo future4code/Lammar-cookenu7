@@ -3,10 +3,12 @@ import { UserDatabase } from "../data/UserDataBase";
 import { InvalidEmail, InvalidPassword, NotNullEmail, NotNullName, NotNullPassword } from "../error/UserError";
 import { user } from "../model/user";
 import { userInputDTO } from "../model/userDTO";
+import { Authenticator } from "../services/Authenticator";
 import { generateId } from "../services/idGenerator";
 
+const authenticator = new Authenticator()
 export class UserBusiness{
-    createUser =async (input:userInputDTO):Promise<void> => {
+    createUser =async (input:userInputDTO) => {
         try{
             const {name, email, password} = input;
 
@@ -33,6 +35,10 @@ export class UserBusiness{
 
             const userDatabase = new UserDatabase();
             await userDatabase.insertUser(user)
+
+            const token = authenticator.generateToken({id})
+
+            return token
 
         }catch(error:any){
             throw new Error(error.message)
