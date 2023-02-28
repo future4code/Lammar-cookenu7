@@ -26,3 +26,15 @@ export class InvalidPassword extends CustomError{
         super(400, "A senha precisa ter mais de 6 caracteres.")
     }
 }
+
+export class PasswordIncorrect extends CustomError{
+    constructor(){
+        super(400, "Senha inválida")
+    }
+} 
+
+export class UserNotFound extends CustomError{
+    constructor(){
+        super(400, "Usuário não localizado.")
+    }
+}
