@@ -14,7 +14,7 @@ export class RecipesController{
             const recipesBusiness = new RecipeBusiness()
             const token = await recipesBusiness.createRecipes(input) 
             
-            res.status(201).send({message: "Usuário criado com sucesso", token})
+            res.status(201).send({message: "Receita criada com sucesso", token})
         }catch(error:any){
             res.status(400).send(error.message || error.sqlMessage)
         }
