@@ -5,13 +5,11 @@ CREATE TABLE User_Cookenu (
     password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Receitas_Cookenu (
+CREATE TABLE Recipes_Cookenu (
 	id VARCHAR(255) PRIMARY KEY, 
     title VARCHAR(255) NOT NULL, 
     description TEXT NOT NULL,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    author_id varchar(255) NOT NULL,
-    FOREIGN KEY (author_id) REFERENCES User_Cookenu(id)
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE Follow_Cookenu (
@@ -22,3 +20,4 @@ CREATE TABLE Follow_Cookenu (
     FOREIGN KEY (my_id) REFERENCES User_Cookenu(id)
 
 );
+
