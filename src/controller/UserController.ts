@@ -1,7 +1,9 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { login } from "../model/user/login";
-import { userInputDTO } from "../model/user/userDTO";
+import { UserDatabase } from "../data/UserDataBase";
+import { CustomError } from "../error/CustomError";
+import { login } from "../model/login";
+import { userInputDTO } from "../model/userDTO";
 
 export class UserController{
     createUser = async (req: Request, res: Response) =>{
@@ -36,6 +38,20 @@ export class UserController{
             res.status(200).send({token})
         }catch(error:any){
             res.status(400).send(error.message)
+        }
+    }
+
+    getUser = async(req: Request, res:Response)=>{
+        try{
+            const token = req.headers.authorization as string
+
+            const userDatabase = new UserDatabase()
+            const user = await userDatabase.getUser(token)
+            console.log(token)
+
+            res.status(201).send(user[0])
+        }catch(error:any){
+            throw new CustomError(error.statusCode, error.message);
         }
     }
 }

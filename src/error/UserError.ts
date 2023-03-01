@@ -38,3 +38,15 @@ export class UserNotFound extends CustomError{
         super(400, "Usuário não localizado.")
     }
 }
+
+export class NotNullToken extends CustomError{
+    constructor(){
+        super(400, "Favor insira o token.")
+    }
+}
+
+export class Unauthorized extends CustomError{ 
+    constructor(){
+        super(401, "Usuário não autorizado")
+    }
+}
