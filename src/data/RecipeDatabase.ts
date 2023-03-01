@@ -1,3 +1,6 @@
+import { CustomError } from "../error/CustomError"
+import { UserNotFound } from "../error/UserError"
+import { GetRecipes } from "../model/recipes/getRecipes"
 import { Recipes } from "../model/recipes/recipes"
 import { BaseDatabase } from "./BaseDatabase"
 
@@ -12,6 +15,22 @@ export class RecipeDatabase extends BaseDatabase{
             }).into("Recipes_Cookenu")
         }catch(error:any){
             throw new Error(error.message)
+        }
+    }
+
+    getRecipe = async(input: GetRecipes)=>{
+        try{
+            const queryResult = await RecipeDatabase.connection("Recipes_Cookenu")
+            .select("*")
+            .where({id: input.id})
+
+
+            if(queryResult.length <1){
+                throw new UserNotFound
+            }
+            return queryResult
+        }catch(error:any){
+            throw new CustomError(error.statusCode, error.message)
         }
     }
 }

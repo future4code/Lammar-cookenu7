@@ -31,3 +31,8 @@ Content-Type: application/json
     "title": "Yakissoba",
     "description": "Ingredientes: 100g de peito de frango, 100g de carne bovina, 1 pimentão verde, 1 pimentão amarelo, 1 pimentão vermelho, 1 brócolos, 2 cenouras grandes, Shoyo, 1 pacote de macarrão para yakissoba."
 }
+
+###
+
+GET http://localhost:3003/recipe/7ed21236-0b95-4e3d-82e6-2a15e98f6d5b
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDctNDRiMy1hZDlhLTliN2ZiN2IwNWIzNyIsImlhdCI6MTY3NzY5MzIxNSwiZXhwIjoxNjc3NzExMjE1fQ.UgmIq2P3QOoFvmVqkboyxjeK6nk1-Hk-wXi5YIfZpCI
