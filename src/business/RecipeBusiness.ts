@@ -40,21 +40,4 @@ export class RecipeBusiness{
             throw new Error(error.message)
         }
     }
-
-/*     getRecipe = async (input:GetRecipes) =>{
-        try{
-            const {token} = input;
-
-            if(!token){
-                throw new NotNullToken();
-            }
-
-            const {id} = authenticator.getTokenData(token)
-
-            const recipeDatabase = new RecipeDatabase();
-            await recipeDatabase.getRecipe(id);
-        }catch(error:any){
-            throw new CustomError(400, error.message)
-        }
-    } */
 }
