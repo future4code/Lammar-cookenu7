@@ -2,6 +2,7 @@ import * as jwt from "jsonwebtoken"
 import { Unauthorized } from "../error/UserError"
 import { Authentication } from "../model/authentication"
 
+
 export class Authenticator {
     public generateToken = ({id}: Authentication):string =>{
         const token = jwt.sign(

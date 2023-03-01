@@ -2,6 +2,7 @@ import { Response } from "express";
 import { CustomError } from "../error/CustomError";
 import { UserNotFound } from "../error/UserError";
 import { user } from "../model/user";
+
 import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase{
