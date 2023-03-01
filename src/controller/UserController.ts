@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
 import { UserDatabase } from "../data/UserDataBase";
 import { CustomError } from "../error/CustomError";
+import { FollowInputDTO } from "../model/follow/followDTO";
 import { login } from "../model/user/login";
 import { userInputDTO } from "../model/user/userDTO";
 
@@ -52,6 +53,22 @@ export class UserController{
             res.status(201).send(user[0])
         }catch(error:any){
             throw new CustomError(error.statusCode, error.message);
+        }
+    }
+
+    createFollow = async (req: Request, res: Response) =>{
+        try{
+            const input: FollowInputDTO={
+                id_follow: req.body.id_follow,
+                token: req.headers.authorization as string
+            };
+
+            const userBusiness = new UserBusiness()
+            const token = await userBusiness.createFollow(input)  
+            
+            res.status(201).send({message: "Followed successfully"})
+        }catch(error:any){
+            res.status(400).send(error.message || error.sqlMessage)
         }
     }
 }

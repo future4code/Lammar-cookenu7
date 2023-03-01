@@ -1,7 +1,10 @@
 import { AnyTxtRecord } from "dns";
 import { UserDatabase } from "../data/UserDataBase";
 import { CustomError } from "../error/CustomError";
-import { InvalidEmail, InvalidPassword, NotNullEmail, NotNullName, NotNullPassword, NotNullToken, PasswordIncorrect, UserNotFound } from "../error/UserError";
+import { NotNullTitle } from "../error/RecipesError";
+import { InvalidEmail, InvalidPassword, NotNullEmail, NotNullIdFollow, NotNullName, NotNullPassword, NotNullToken, PasswordIncorrect, UserNotFound } from "../error/UserError";
+import { Follow } from "../model/follow/follow";
+import { FollowInputDTO } from "../model/follow/followDTO";
 import { getUserDTO } from "../model/user/getUserDTO.";
 import { login } from "../model/user/login";
 import { user } from "../model/user/user";
@@ -97,6 +100,31 @@ export class UserBusiness{
             await userDatabase.getUser(id);
         }catch(error:any){
             throw new CustomError(400, error.message)
+        }
+    }
+
+    createFollow =async (input:FollowInputDTO) => {
+        try{
+            const {id_follow, token} = input;
+
+            if(!id_follow){
+                throw new NotNullIdFollow()
+            }else if(!token){
+                throw new NotNullToken()
+            }
+
+            const id: string = generateId()
+
+            const follow:Follow={
+                id,
+                id_follow
+            }
+
+            const userDatabase = new UserDatabase();
+            await userDatabase.createFollow(follow)
+
+        }catch(error:any){
+            throw new Error(error.message)
         }
     }
 }

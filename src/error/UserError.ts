@@ -1,23 +1,8 @@
 import { CustomError } from "./CustomError";
 
-export class NotNullName extends CustomError{
-    constructor(){
-        super(400, "Favor preencha o campo nickname.")
-    }
-}
-export class NotNullEmail extends CustomError{
-    constructor(){
-        super(400, "Favor preencha o campo email.")
-    }
-}
 export class InvalidEmail extends CustomError{
     constructor(){
         super(400, "Favor insira um e-mail válido.")
-    }
-}
-export class NotNullPassword extends CustomError{
-    constructor(){
-        super(404, "Favor preencha o campo password.")
     }
 }
 
@@ -27,15 +12,24 @@ export class InvalidPassword extends CustomError{
     }
 }
 
-export class PasswordIncorrect extends CustomError{
+export class NotNullEmail extends CustomError{
     constructor(){
-        super(400, "Senha inválida")
+        super(400, "Favor preencha o campo email.")
     }
-} 
-
-export class UserNotFound extends CustomError{
+}
+export class NotNullIdFollow extends CustomError{
     constructor(){
-        super(400, "Usuário não localizado.")
+        super(400, "Favor inserir o id do usuário que deseja seguir.")
+    }
+}
+export class NotNullName extends CustomError{
+    constructor(){
+        super(400, "Favor preencha o campo nickname.")
+    }
+}
+export class NotNullPassword extends CustomError{
+    constructor(){
+        super(404, "Favor preencha o campo password.")
     }
 }
 
@@ -44,9 +38,18 @@ export class NotNullToken extends CustomError{
         super(400, "Favor insira o token.")
     }
 }
-
+export class PasswordIncorrect extends CustomError{
+    constructor(){
+        super(400, "Senha inválida")
+    }
+} 
 export class Unauthorized extends CustomError{ 
     constructor(){
         super(401, "Usuário não autorizado")
+    }
+}
+export class UserNotFound extends CustomError{
+    constructor(){
+        super(400, "Usuário não localizado.")
     }
 }
