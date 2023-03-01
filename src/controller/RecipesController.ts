@@ -25,11 +25,14 @@ export class RecipesController{
 
     getRecipe = async(req: Request, res:Response)=>{
         try{
-            const {id} = req.params
-            
+
+            const input: GetRecipes={
+                id: req.params.id,
+                token: req.headers.authorization as string
+            }            
 
             const recipeDatabase = new RecipeDatabase()
-            const recipe = await recipeDatabase.getRecipe(id)
+            const recipe = await recipeDatabase.getRecipe(input)
 
 
             res.status(201).send(recipe)

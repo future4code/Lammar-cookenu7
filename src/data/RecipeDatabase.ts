@@ -1,5 +1,6 @@
 import { CustomError } from "../error/CustomError"
 import { UserNotFound } from "../error/UserError"
+import { GetRecipes } from "../model/recipes/getRecipes"
 import { Recipes } from "../model/recipes/recipes"
 import { BaseDatabase } from "./BaseDatabase"
 
@@ -17,11 +18,11 @@ export class RecipeDatabase extends BaseDatabase{
         }
     }
 
-    getRecipe = async(id:string)=>{
+    getRecipe = async(input: GetRecipes)=>{
         try{
             const queryResult = await RecipeDatabase.connection("Recipes_Cookenu")
             .select("*")
-            .where({id})
+            .where({id: input.id})
 
 
             if(queryResult.length <1){
