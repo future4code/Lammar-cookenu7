@@ -8,9 +8,7 @@ export class RecipeDatabase extends BaseDatabase{
             .insert({
                 id: recipes.id,
                 title:recipes.title,
-                description: recipes.description,
-                author_id:recipes.author_id
- 
+                description: recipes.description
             }).into("Receitas_Cookenu")
         }catch(error:any){
             throw new Error(error.message)

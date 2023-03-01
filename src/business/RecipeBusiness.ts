@@ -1,5 +1,5 @@
 import { RecipeDatabase } from "../data/RecipeDatabase";
-import { NotNullAuthor_id, NotNullDescription, NotNullTitle } from "../error/RecipesError";
+import { NotNullDescription, NotNullTitle } from "../error/RecipesError";
 import { Recipes } from "../model/recipes/recipes";
 import { RecipesInputDTO } from "../model/recipes/recipesDTO";
 import { Authenticator } from "../services/Authenticator";
@@ -10,14 +10,12 @@ const authenticator = new Authenticator()
 export class RecipeBusiness{
     createRecipes =async (input:RecipesInputDTO) => {
         try{
-            const {title, description, author_id} = input;
+            const {title, description,} = input;
 
             if(!title){
                 throw new NotNullTitle()
             }else if(!description){
                 throw new NotNullDescription()
-            }else if(!author_id){
-                throw new NotNullAuthor_id()
             }
 
             const id: string = generateId()
@@ -26,13 +24,12 @@ export class RecipeBusiness{
                 id,
                 title,
                 description,
-                author_id
             }
 
             const recipeDatabase = new RecipeDatabase
             await recipeDatabase.createRecipe(recipes)
 
-            const token = authenticator.generateToken({id})
+            const token = authenticator.generateToken({id: recipes.id})
 
             return token
 

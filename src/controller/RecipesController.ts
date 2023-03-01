@@ -8,7 +8,7 @@ export class RecipesController{
             const input: RecipesInputDTO={
                 title: req.body.title,
                 description: req.body.description,
-                author_id: req.body.author_id,
+                token: req.headers.authorization as string
             };
 
             const recipesBusiness = new RecipeBusiness()

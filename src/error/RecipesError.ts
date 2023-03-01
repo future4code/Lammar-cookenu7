@@ -10,9 +10,3 @@ export class NotNullDescription extends CustomError{
         super(400, "Favor preencha o campo descrição.")
     }
 }
-
-export class NotNullAuthor_id extends CustomError{
-    constructor(){
-        super(400, "Favor preencha o campo id do author.")
-    }
-}
