@@ -19,9 +19,10 @@ export class RecipeDatabase extends BaseDatabase{
 
     getRecipe = async(id:string)=>{
         try{
-            const queryResult = await RecipeDatabase.connection("Receitas_Cookenu")
+            const queryResult = await RecipeDatabase.connection("Recipes_Cookenu")
             .select("*")
             .where({id})
+
 
             if(queryResult.length <1){
                 throw new UserNotFound

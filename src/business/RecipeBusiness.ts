@@ -41,7 +41,7 @@ export class RecipeBusiness{
         }
     }
 
-    getRecipe = async (input:GetRecipes) =>{
+/*     getRecipe = async (input:GetRecipes) =>{
         try{
             const {token} = input;
 
@@ -56,5 +56,5 @@ export class RecipeBusiness{
         }catch(error:any){
             throw new CustomError(400, error.message)
         }
-    }
+    } */
 }

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { RecipeBusiness } from "../business/RecipeBusiness";
+import { RecipeDatabase } from "../data/RecipeDatabase";
 import { CustomError } from "../error/CustomError";
 import { GetRecipes } from "../model/recipes/getRecipes";
 import { RecipesInputDTO } from "../model/recipes/recipesDTO";
@@ -24,17 +25,14 @@ export class RecipesController{
 
     getRecipe = async(req: Request, res:Response)=>{
         try{
-            const input: GetRecipes={
-                id: req.params.id,
-                token: req.headers.authorization as string
-            } 
+            const {id} = req.params
             
 
-            const recipesBusiness = new RecipeBusiness()
-            const user = await recipesBusiness.getRecipe(input)
+            const recipeDatabase = new RecipeDatabase()
+            const recipe = await recipeDatabase.getRecipe(id)
 
 
-            res.status(201).send(user)
+            res.status(201).send(recipe)
         }catch(error:any){
             throw new CustomError(error.statusCode, error.message);
         }
