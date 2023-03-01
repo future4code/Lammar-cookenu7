@@ -3,9 +3,9 @@ import { UserDatabase } from "../data/UserDataBase";
 import { CustomError } from "../error/CustomError";
 import { InvalidEmail, InvalidPassword, NotNullEmail, NotNullName, NotNullPassword, NotNullToken, PasswordIncorrect, UserNotFound } from "../error/UserError";
 import { getUserDTO } from "../model/getUserDTO.";
-import { login } from "../model/login";
-import { user } from "../model/user";
-import { userInputDTO } from "../model/userDTO";
+import { login } from "../model/user/login";
+import { user } from "../model/user/user";
+import { userInputDTO } from "../model/user/userDTO";
 import { Authenticator } from "../services/Authenticator";
 import { generateId } from "../services/idGenerator";
 

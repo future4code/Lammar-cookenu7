@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
 import { UserDatabase } from "../data/UserDataBase";
 import { CustomError } from "../error/CustomError";
-import { login } from "../model/login";
-import { userInputDTO } from "../model/userDTO";
+import { login } from "../model/user/login";
+import { userInputDTO } from "../model/user/userDTO";
 
 export class UserController{
     createUser = async (req: Request, res: Response) =>{

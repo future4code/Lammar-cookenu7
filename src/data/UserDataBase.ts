@@ -1,7 +1,7 @@
 import { Response } from "express";
 import { CustomError } from "../error/CustomError";
 import { UserNotFound } from "../error/UserError";
-import { user } from "../model/user";
+import { user } from "../model/user/user";
 
 import { BaseDatabase } from "./BaseDatabase";
 

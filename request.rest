@@ -1,10 +1,10 @@
-POST http://localhost:3003/user/create
+POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name": "Ellie",
-    "email": "ramsey@email.com",
-    "password": "souimune"
+    "name": "Tess",
+    "email": "tess@email.com",
+    "password": "ilovejoel"
 }
 
 ###
@@ -12,11 +12,11 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-    "email": "ramsey@email.com",
-    "password": "souimune"
+    "email": "tess@email.com",
+    "password": "ilovejoel"
 }
 
 ###
 
 GET http://localhost:3003/user/profile
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiOTc1OGIzLWRmNTItNDYzMC1hYTJkLTFmMTU5Mjg4YWIwNiIsImlhdCI6MTY3NzYxNjE2NSwiZXhwIjoxNjc3NjM0MTY1fQ.FlnxDcMqwxARbqvT6LBe3HdBqMvFpsTn_KczRFazCaA
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDctNDRiMy1hZDlhLTliN2ZiN2IwNWIzNyIsImlhdCI6MTY3NzY5MzIxNSwiZXhwIjoxNjc3NzExMjE1fQ.UgmIq2P3QOoFvmVqkboyxjeK6nk1-Hk-wXi5YIfZpCI
