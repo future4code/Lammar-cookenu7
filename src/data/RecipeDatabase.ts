@@ -11,7 +11,7 @@ export class RecipeDatabase extends BaseDatabase{
                 id: recipes.id,
                 title:recipes.title,
                 description: recipes.description
-            }).into("Receitas_Cookenu")
+            }).into("Recipes_Cookenu")
         }catch(error:any){
             throw new Error(error.message)
         }
