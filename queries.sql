@@ -15,9 +15,6 @@ CREATE TABLE Recipes_Cookenu (
 CREATE TABLE Follow_Cookenu (
 	id VARCHAR(255) PRIMARY KEY, 
     id_follow VARCHAR(255) NOT NULL,
-    FOREIGN KEY (id_follow) REFERENCES User_Cookenu(id),
-    my_id VARCHAR(255) NOT NULL,
-    FOREIGN KEY (my_id) REFERENCES User_Cookenu(id)
-
+    FOREIGN KEY (id_follow) REFERENCES User_Cookenu(id)
 );
 

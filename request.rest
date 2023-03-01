@@ -36,3 +36,13 @@ Content-Type: application/json
 
 GET http://localhost:3003/recipe/7ed21236-0b95-4e3d-82e6-2a15e98f6d5b
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDctNDRiMy1hZDlhLTliN2ZiN2IwNWIzNyIsImlhdCI6MTY3NzY5MzIxNSwiZXhwIjoxNjc3NzExMjE1fQ.UgmIq2P3QOoFvmVqkboyxjeK6nk1-Hk-wXi5YIfZpCI
+
+###
+
+POST http://localhost:3003/user/follow
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDctNDRiMy1hZDlhLTliN2ZiN2IwNWIzNyIsImlhdCI6MTY3NzY5MzIxNSwiZXhwIjoxNjc3NzExMjE1fQ.UgmIq2P3QOoFvmVqkboyxjeK6nk1-Hk-wXi5YIfZpCI
+Content-Type: application/json
+
+{
+    "id_follow":"8faccff9-3707-44b3-ad9a-9b7fb7b05b37"
+}
