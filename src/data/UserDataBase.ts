@@ -17,7 +17,8 @@ export class UserDatabase extends BaseDatabase{
                 id: user.id,
                 name: user.name,
                 email: user.email,
-                password: user.password
+                password: user.password,
+                role: user.role
             }).into("User_Cookenu")
         }catch(error:any){
             throw new Error(error.message)
