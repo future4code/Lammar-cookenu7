@@ -40,9 +40,19 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDct
 ###
 
 POST http://localhost:3003/user/follow
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDctNDRiMy1hZDlhLTliN2ZiN2IwNWIzNyIsImlhdCI6MTY3NzY5MzIxNSwiZXhwIjoxNjc3NzExMjE1fQ.UgmIq2P3QOoFvmVqkboyxjeK6nk1-Hk-wXi5YIfZpCI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDctNDRiMy1hZDlhLTliN2ZiN2IwNWIzNyIsImlhdCI6MTY3NzcyMTY0MiwiZXhwIjoxNjc3NzM5NjQyfQ.vaUByKIcBl7D5Ic7HsfA3hDaIKdU_JiXuOWpUc_bsVs
 Content-Type: application/json
 
 {
-    "id_follow":"8faccff9-3707-44b3-ad9a-9b7fb7b05b37"
+    "id_followed":"a9531aa3-6cac-4b33-8f3f-bb647f77ad29"
 }
+
+###
+POST http://localhost:3003/user/unfollow
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDctNDRiMy1hZDlhLTliN2ZiN2IwNWIzNyIsImlhdCI6MTY3NzcyMTY0MiwiZXhwIjoxNjc3NzM5NjQyfQ.vaUByKIcBl7D5Ic7HsfA3hDaIKdU_JiXuOWpUc_bsVs
+Content-Type: application/json
+
+{
+    "id_followed":"0b9758b3-df52-4630-aa2d-1f159288ab06"
+}
+

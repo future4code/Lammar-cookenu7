@@ -1,4 +1,4 @@
 export type FollowInputDTO ={
-    id_follow:string,
+    id_followed:string,
     token: string
 }

@@ -1,9 +1,8 @@
 import { Response } from "express";
 import { CustomError } from "../error/CustomError";
-import { InvalidPassword, Unauthorized, UserNotFound } from "../error/UserError";
+import { Unauthorized, UserNotFound } from "../error/UserError";
 import { Follow } from "../model/follow/follow";
 import { user } from "../model/user/user";
-
 import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase{
@@ -51,14 +50,28 @@ export class UserDatabase extends BaseDatabase{
             const queryResult = await UserDatabase.connection
             .insert({
                 id: follow.id,
-                id_follow: follow.id_follow
+                id_followed: follow.id_followed,
+                id_following: follow.id_following
             }).into("Follow_Cookenu")
 
             if(queryResult.length <1){
                 throw new Unauthorized();
             }
 
-            console.log(queryResult)
+        }catch(error:any){
+            throw new Error(error.message)
+        }
+    }
+
+    unfollow = async(follow: Follow):Promise<void>=>{
+        try{
+            await UserDatabase.connection("Follow_Cookenu")
+            .delete()
+            .where({
+                id_followed: follow.id_followed,
+                id_following: follow.id_following
+            })
+
         }catch(error:any){
             throw new Error(error.message)
         }
