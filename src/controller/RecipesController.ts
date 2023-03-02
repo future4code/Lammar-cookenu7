@@ -35,7 +35,7 @@ export class RecipesController{
             const recipe = await recipeDatabase.getRecipe(input)
 
 
-            res.status(201).send(recipe)
+            res.status(200).send(recipe)
         }catch(error:any){
             throw new CustomError(error.statusCode, error.message);
         }
