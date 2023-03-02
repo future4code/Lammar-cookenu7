@@ -13,8 +13,8 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-    "email": "ellie@email.com",
-    "password": "souimune"
+    "email": "joel@email.com",
+    "password": "ilovesarah"
 }
 
 ###
@@ -24,12 +24,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZiYjA5ODk4LTlmMjEt
 ###
 
 POST http://localhost:3003/recipe/create
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZiYjA5ODk4LTlmMjEtNGQ2NC04ZGUxLWQxOTJiOWYwNzM0ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3Nzc5MDI0OSwiZXhwIjoxNjc3ODA4MjQ5fQ.x9RY0g3ycnItWLvfBFXbvwfsDuQ8DB7s2OD41PLOJtE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM3YzM1NTUwLTk1NGItNDRmNS1iZjI2LTRjNDM3ZWFkNWNkOCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2Nzc3OTc2MjEsImV4cCI6MTY3NzgxNTYyMX0.m6lBf5CoduAuzBA22NwljeFrbQUt3EV3zowJa0I_TXA
 Content-Type: application/json
 
 {
-    "title": "Yakissoba",
-    "description": "Ingredientes: 200g de peito de frango, 200g de carne bovina, cenoura, brócolis, pimentão verde, vermelhoe e amarelo, maizena, shoyo e macarrão instantaneo"
+    "title": "Panqueca",
+    "description": "Ingredientes: 200g de peito de frango, Sal, pimenta do reino, orégano, 2 ovos, trigo, leite e fermento. Misture no liquidificador os ovos, trigo, leite, sal, pimenta do reino e orégano. Após tudo uniforme, insira o fermento e bata novamente. Cozinhe o frango ao seu gosto e desfie ele."
 }
 
 ###
@@ -62,7 +62,7 @@ GET http://localhost:3003/user/feed
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM3YzM1NTUwLTk1NGItNDRmNS1iZjI2LTRjNDM3ZWFkNWNkOCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2Nzc3OTA0MDksImV4cCI6MTY3NzgwODQwOX0.XUVFpA9lUehU3sxARUFXw7UYrlhsZaL7qFdAmFZ_o8M
 
 ###
-PUT http://localhost:3003/recipe/edit/3f612dbf-5c20-497b-9a1f-1c6b72c74542
+PUT http://localhost:3003/recipe/edit/7b79f4c9-86af-46a7-8eff-87a5ce9f046e
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM3YzM1NTUwLTk1NGItNDRmNS1iZjI2LTRjNDM3ZWFkNWNkOCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2Nzc3OTA0MDksImV4cCI6MTY3NzgwODQwOX0.XUVFpA9lUehU3sxARUFXw7UYrlhsZaL7qFdAmFZ_o8M
 Content-Type: application/json
 
@@ -71,3 +71,8 @@ Content-Type: application/json
     "title": "Panqueca da Ellie",
     "description": "Ingredientes: 200g de peito de frango, Sal, pimenta do reino, orégano, 2 ovos, trigo, leite e fermento. Misture no liquidificador os ovos, trigo, leite, sal, pimenta do reino e orégano. Após tudo uniforme, insira o fermento e bata novamente. Cozinhe o frango ao seu gosto e desfie ele."
 }
+
+###
+
+DELETE http://localhost:3003/recipe/delete/7b79f4c9-86af-46a7-8eff-87a5ce9f046e
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM3YzM1NTUwLTk1NGItNDRmNS1iZjI2LTRjNDM3ZWFkNWNkOCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2Nzc3OTc2MjEsImV4cCI6MTY3NzgxNTYyMX0.m6lBf5CoduAuzBA22NwljeFrbQUt3EV3zowJa0I_TXA
