@@ -72,10 +72,10 @@ export class UserController{
         }
     }
 
-/*     unfollow = async (req: Request, res: Response) =>{
+    unfollow = async (req: Request, res: Response) =>{
         try{
             const input: FollowInputDTO={
-                id_follow: req.body.id_follow,
+                id_followed: req.body.id_followed,
                 token: req.headers.authorization as string
             };
 
@@ -86,5 +86,5 @@ export class UserController{
         }catch(error:any){
             res.status(400).send(error.message || error.sqlMessage)
         }
-    } */
+    } 
 }

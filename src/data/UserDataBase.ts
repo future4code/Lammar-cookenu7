@@ -58,20 +58,22 @@ export class UserDatabase extends BaseDatabase{
                 throw new Unauthorized();
             }
 
-            console.log(queryResult)
         }catch(error:any){
             throw new Error(error.message)
         }
     }
 
-/*     unfollow = async(id_follow:string):Promise<void>=>{
+    unfollow = async(follow: Follow):Promise<void>=>{
         try{
             await UserDatabase.connection("Follow_Cookenu")
             .delete()
-            .where(id_follow)
+            .where({
+                id_followed: follow.id_followed,
+                id_following: follow.id_following
+            })
 
         }catch(error:any){
             throw new Error(error.message)
         }
-    } */
+    }
 }

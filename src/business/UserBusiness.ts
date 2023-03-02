@@ -131,21 +131,24 @@ export class UserBusiness{
         }
     }
 
-/*     unfollow =async (input:FollowInputDTO) => {
+     unfollow =async (input:FollowInputDTO) => {
         try{
-            const {id_follow, token} = input;
+            const {id_followed, token} = input;
 
-            if(!id_follow){
+            if(!id_followed){
                 throw new NotNullIdFollow()
             }else if(!token){
                 throw new NotNullToken()
             }
 
-            const id: string = generateId()
+            const generatedId: string = generateId()
+
+            const {id} = authenticator.getTokenData(token)
 
             const unfollow:Follow={
-                id,
-                id_follow
+                id: generatedId,
+                id_followed,
+                id_following: id
             }
 
             const userDatabase = new UserDatabase();
@@ -154,6 +157,6 @@ export class UserBusiness{
         }catch(error:any){
             throw new Error(error.message)
         }
-    } */
+    } 
 
 }
