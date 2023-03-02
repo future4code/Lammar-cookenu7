@@ -106,4 +106,5 @@ export class UserDatabase extends BaseDatabase{
             throw new CustomError(error.statusCode, error.message)
         }
     }
+
 }
