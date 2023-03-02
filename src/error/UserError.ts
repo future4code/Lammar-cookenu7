@@ -12,6 +12,12 @@ export class InvalidPassword extends CustomError{
     }
 }
 
+export class InvalidRole extends CustomError{ 
+    constructor(){
+        super(400, "Tipo de usuário inválido")
+    }
+}
+
 export class NotNullEmail extends CustomError{
     constructor(){
         super(400, "Favor preencha o campo email.")
@@ -30,6 +36,11 @@ export class NotNullName extends CustomError{
 export class NotNullPassword extends CustomError{
     constructor(){
         super(404, "Favor preencha o campo password.")
+    }
+}
+export class NotNullRole extends CustomError{
+    constructor(){
+        super(404, "Favor preencha o campo role.")
     }
 }
 

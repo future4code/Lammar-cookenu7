@@ -1,3 +1,4 @@
 export type Authentication = {
-    id:string
+    id:string,
+    role: string
  }

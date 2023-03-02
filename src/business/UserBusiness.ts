@@ -1,14 +1,12 @@
-import { AnyTxtRecord } from "dns";
 import { UserDatabase } from "../data/UserDataBase";
 import { CustomError } from "../error/CustomError";
-import { NotNullTitle } from "../error/RecipesError";
-import { InvalidEmail, InvalidPassword, NotNullEmail, NotNullIdFollow, NotNullName, NotNullPassword, NotNullToken, PasswordIncorrect, UserNotFound } from "../error/UserError";
+import { InvalidEmail, InvalidPassword, InvalidRole, NotNullEmail, NotNullIdFollow, NotNullName, NotNullPassword, NotNullRole, NotNullToken, PasswordIncorrect, UserNotFound } from "../error/UserError";
 import { Follow } from "../model/follow/follow";
 import { FollowInputDTO } from "../model/follow/followDTO";
-import { getUserDTO } from "../model/user/getUserDTO.";
 import { login } from "../model/user/login";
 import { user } from "../model/user/user";
 import { userInputDTO } from "../model/user/userDTO";
+import { UserRole } from "../model/user/userRole";
 import { Authenticator } from "../services/Authenticator";
 import { generateId } from "../services/idGenerator";
 
@@ -16,7 +14,7 @@ const authenticator = new Authenticator()
 export class UserBusiness{
     createUser =async (input:userInputDTO) => {
         try{
-            const {name, email, password} = input;
+            const {name, email, password, role} = input;
 
             if(!name){
                 throw new NotNullName()
@@ -25,24 +23,31 @@ export class UserBusiness{
             }else if(!password){
                 throw new NotNullPassword()
             }else if (!email.includes("@")){
-                throw new InvalidEmail
+                throw new InvalidEmail()
             }else if(password.length <=6){
-                throw new InvalidPassword
+                throw new InvalidPassword()
+            }else if(!role){
+                throw new NotNullRole()
             }
 
             const id: string = generateId()
+
+            if(role.toUpperCase() != UserRole.ADMIN && role.toUpperCase() != UserRole.NORMAL){
+                throw new InvalidRole()
+              }
 
             const user:user={
                 id,
                 name,
                 email,
-                password
+                password,
+                role
             }
 
             const userDatabase = new UserDatabase();
             await userDatabase.insertUser(user)
 
-            const token = authenticator.generateToken({id})
+            const token = authenticator.generateToken({id, role})
 
             return token
 
@@ -78,7 +83,7 @@ export class UserBusiness{
                 throw new PasswordIncorrect()
             }
 
-            const token = authenticator.generateToken({id: user.id})
+            const token = authenticator.generateToken({id: user.id, role:user.role})
 
             return token
         }catch(error:any){
