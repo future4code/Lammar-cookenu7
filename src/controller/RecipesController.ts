@@ -6,7 +6,7 @@ import { GetRecipes } from "../model/recipes/getRecipes";
 import { RecipesInputDTO } from "../model/recipes/recipesDTO";
 
 export class RecipesController{
-    createUser = async (req: Request, res: Response) =>{
+    createRecipes = async (req: Request, res: Response) =>{
         try{
             const input: RecipesInputDTO={
                 title: req.body.title,

@@ -48,7 +48,6 @@ export class UserController{
 
             const userDatabase = new UserDatabase()
             const user = await userDatabase.getUser(token)
-            console.log(token)
 
             res.status(201).send(user[0])
         }catch(error:any){
@@ -64,7 +63,7 @@ export class UserController{
             };
 
             const userBusiness = new UserBusiness()
-            const token = await userBusiness.createFollow(input)  
+            await userBusiness.createFollow(input)  
             
             res.status(201).send({message: "Followed successfully"})
         }catch(error:any){

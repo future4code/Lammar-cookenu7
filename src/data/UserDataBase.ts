@@ -3,7 +3,11 @@ import { CustomError } from "../error/CustomError";
 import { Unauthorized, UserNotFound } from "../error/UserError";
 import { Follow } from "../model/follow/follow";
 import { user } from "../model/user/user";
+import { Authenticator } from "../services/Authenticator";
 import { BaseDatabase } from "./BaseDatabase";
+import {getUserDTO} from "../model/user/getUserDTO."
+
+const authenticator = new Authenticator()
 
 export class UserDatabase extends BaseDatabase{
     insertUser = async(user:user):Promise<void>=>{
@@ -31,10 +35,13 @@ export class UserDatabase extends BaseDatabase{
         }
     }
 
-    getUser = async(token:string)=>{
+    getUser = async(token: string)=>{
         try{
+            const {id} = authenticator.getTokenData(token)
+
             const queryResult = await UserDatabase.connection("User_Cookenu")
-            .select("*")
+            .select("id", "name", "email")
+            .where({id})
 
             if(queryResult.length <1){
                 throw new UserNotFound

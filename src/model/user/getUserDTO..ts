@@ -1,3 +1,4 @@
 export interface getUserDTO {
-    token: string
+    token: string,
+    id:string
  }
