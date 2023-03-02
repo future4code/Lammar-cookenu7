@@ -10,6 +10,9 @@ CREATE TABLE Recipes_Cookenu (
     title VARCHAR(255) NOT NULL, 
     description TEXT NOT NULL,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    author_id VARCHAR(255),
+    FOREIGN KEY (author_id) REFERENCES User_Cookenu(id)
+
 );
 
 CREATE TABLE Follow_Cookenu (
