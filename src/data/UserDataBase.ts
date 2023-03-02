@@ -96,6 +96,7 @@ export class UserDatabase extends BaseDatabase{
                 inner join Follow_Cookenu fo on fo.id_followed = u.id 
                 WHERE fo.id_following = "${id}"`
             )
+
             if(queryResult.length <1){
                 throw new UserNotFound
             }

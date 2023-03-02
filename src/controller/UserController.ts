@@ -103,7 +103,11 @@ export class UserController{
             const userDatabase = new UserDatabase()
             const user = await userDatabase.getFeed(token)
 
-            res.status(201).send(user[0])
+            if(user[0].length < 1){
+                res.status(200).send({message: `Seus amigos ainda não postaram nenhuma receita.`})
+            }
+
+            res.status(200).send(user[0])
         }catch(error:any){
             throw new CustomError(error.statusCode, error.message);
         }

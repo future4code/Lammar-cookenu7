@@ -12,8 +12,8 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-    "email": "marlene@email.com",
-    "password": "souvagalume"
+    "email": "ramsey@email.com",
+    "password": "souimune"
 }
 
 ###
@@ -48,16 +48,14 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3003/user/unfollow
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDctNDRiMy1hZDlhLTliN2ZiN2IwNWIzNyIsImlhdCI6MTY3NzcyMTY0MiwiZXhwIjoxNjc3NzM5NjQyfQ.vaUByKIcBl7D5Ic7HsfA3hDaIKdU_JiXuOWpUc_bsVs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIzYzE0ZGZiLWUwZjAtNDczOC04YjMxLTA1YjQxMTc1NTUyOSIsImlhdCI6MTY3Nzc3OTU0NywiZXhwIjoxNjc3Nzk3NTQ3fQ.IC7fyZmkTC1CUKuoFYsBySP_7IlWAAk0Z5FagUzvMUI
 Content-Type: application/json
 
 {
-    "id_followed":"0b9758b3-df52-4630-aa2d-1f159288ab06"
+    "id_followed":"e7ccf381-2be9-4f5c-9dd9-cfc90fe7d332"
 }
 
 ###
 
 GET http://localhost:3003/user/feed
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIzYzE0ZGZiLWUwZjAtNDczOC04YjMxLTA1YjQxMTc1NTUyOSIsImlhdCI6MTY3Nzc3OTU0NywiZXhwIjoxNjc3Nzk3NTQ3fQ.IC7fyZmkTC1CUKuoFYsBySP_7IlWAAk0Z5FagUzvMUI
-
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiOTc1OGIzLWRmNTItNDYzMC1hYTJkLTFmMTU5Mjg4YWIwNiIsImlhdCI6MTY3Nzc4MTIzOCwiZXhwIjoxNjc3Nzk5MjM4fQ.urm1q0qIO0kGb0JmxIfRiy89k5Kj1XwKz2WqeW89C2k
