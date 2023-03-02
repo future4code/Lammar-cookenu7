@@ -6,5 +6,5 @@ const recipeController = new RecipesController();
 export const recipeRouter = express.Router();
 
 
-recipeRouter.post("/create", recipeController.createUser)
+recipeRouter.post("/create", recipeController.createRecipes)
 recipeRouter.get("/:id", recipeController.getRecipe)

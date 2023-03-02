@@ -1,5 +1,5 @@
 import { CustomError } from "../error/CustomError"
-import { UserNotFound } from "../error/UserError"
+import { Unauthorized, UserNotFound } from "../error/UserError"
 import { GetRecipes } from "../model/recipes/getRecipes"
 import { Recipes } from "../model/recipes/recipes"
 import { BaseDatabase } from "./BaseDatabase"
@@ -7,12 +7,18 @@ import { BaseDatabase } from "./BaseDatabase"
 export class RecipeDatabase extends BaseDatabase{
     createRecipe = async(recipes:Recipes):Promise<void>=>{
         try{
-            await RecipeDatabase.connection
+            const queryResult = await RecipeDatabase.connection
             .insert({
                 id: recipes.id,
                 title:recipes.title,
-                description: recipes.description
+                description: recipes.description,
+                author_id: recipes.author_id
             }).into("Recipes_Cookenu")
+
+            if(queryResult.length <1){
+                throw new Unauthorized();
+            }
+
         }catch(error:any){
             throw new Error(error.message)
         }

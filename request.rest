@@ -2,9 +2,9 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name": "Tess",
-    "email": "tess@email.com",
-    "password": "ilovejoel"
+    "name": "Raphael",
+    "email": "raphael@email.com",
+    "password": "iloveftv"
 }
 
 ###
@@ -12,15 +12,14 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-    "email": "tess@email.com",
-    "password": "ilovejoel"
+    "email": "ramsey@email.com",
+    "password": "souimune"
 }
 
 ###
 
 GET http://localhost:3003/user/profile
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDctNDRiMy1hZDlhLTliN2ZiN2IwNWIzNyIsImlhdCI6MTY3NzY5MzIxNSwiZXhwIjoxNjc3NzExMjE1fQ.UgmIq2P3QOoFvmVqkboyxjeK6nk1-Hk-wXi5YIfZpCI
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiOTc1OGIzLWRmNTItNDYzMC1hYTJkLTFmMTU5Mjg4YWIwNiIsImlhdCI6MTY3Nzc2ODcxNSwiZXhwIjoxNjc3Nzg2NzE1fQ.4pLGiFNxx9uaBTscsQmy54ZkIz520TCrAF-Cl7VwC_U
 ###
 
 POST http://localhost:3003/recipe/create
