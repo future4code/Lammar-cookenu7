@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
 import { UserDatabase } from "../data/UserDataBase";
 import { CustomError } from "../error/CustomError";
+import { NotNullToken } from "../error/UserError";
 import { FollowInputDTO } from "../model/follow/followDTO";
 import { login } from "../model/user/login";
 import { userInputDTO } from "../model/user/userDTO";
@@ -45,6 +46,10 @@ export class UserController{
     getUser = async(req: Request, res:Response)=>{
         try{
             const token = req.headers.authorization as string
+
+            if(!token){
+                throw new NotNullToken()
+            }
 
             const userDatabase = new UserDatabase()
             const user = await userDatabase.getUser(token)

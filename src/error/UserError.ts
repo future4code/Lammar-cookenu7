@@ -35,7 +35,7 @@ export class NotNullPassword extends CustomError{
 
 export class NotNullToken extends CustomError{
     constructor(){
-        super(400, "Favor insira o token.")
+        super(400, "Favor insira o token do usuário.")
     }
 }
 export class PasswordIncorrect extends CustomError{
