@@ -86,22 +86,6 @@ export class UserBusiness{
         }
     };
 
-    getUser = async (input:getUserDTO) =>{
-        try{
-            const {token} = input;
-
-            if(!token){
-                throw new NotNullToken();
-            }
-
-            const {id} = authenticator.getTokenData(token)
-
-            const userDatabase = new UserDatabase();
-            await userDatabase.getUser(id);
-        }catch(error:any){
-            throw new CustomError(400, error.message)
-        }
-    }
 
     createFollow =async (input:FollowInputDTO) => {
         try{
