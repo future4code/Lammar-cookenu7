@@ -27,7 +27,7 @@ export class RecipeDatabase extends BaseDatabase{
     getRecipe = async(input: GetRecipes)=>{
         try{
             const queryResult = await RecipeDatabase.connection("Recipes_Cookenu")
-            .select("*")
+            .select("id", "title", "description", "creation_date")
             .where({id: input.id})
 
 
