@@ -1,6 +1,10 @@
 import { UserDatabase } from "../data/UserDataBase";
 import { CustomError } from "../error/CustomError";
-import { InvalidEmail, InvalidPassword, InvalidRole, NotNullEmail, NotNullIdFollow, NotNullName, NotNullPassword, NotNullRole, NotNullToken, PasswordIncorrect, UserNotFound } from "../error/UserError";
+import { 
+    InvalidEmail, InvalidPassword, InvalidRole, 
+    NotNullEmail, NotNullIdFollow, NotNullName, NotNullPassword, NotNullRole, NotNullToken, 
+    PasswordIncorrect, UserNotFound 
+} from "../error/UserError";
 import { Follow } from "../model/follow/follow";
 import { FollowInputDTO } from "../model/follow/followDTO";
 import { login } from "../model/user/login";
@@ -8,9 +12,12 @@ import { user } from "../model/user/user";
 import { userInputDTO } from "../model/user/userDTO";
 import { UserRole } from "../model/user/userRole";
 import { Authenticator } from "../services/Authenticator";
+import { HashManager } from "../services/HashManager";
 import { generateId } from "../services/idGenerator";
 
 const authenticator = new Authenticator()
+const hashManager = new HashManager();
+
 export class UserBusiness{
     createUser =async (input:userInputDTO) => {
         try{
@@ -30,17 +37,20 @@ export class UserBusiness{
                 throw new NotNullRole()
             }
 
-            const id: string = generateId()
-
             if(role.toUpperCase() != UserRole.ADMIN && role.toUpperCase() != UserRole.NORMAL){
                 throw new InvalidRole()
               }
+
+            const id: string = generateId()
+
+            const hashPassword: string = await hashManager.hash(password);
+
 
             const user:user={
                 id,
                 name,
                 email,
-                password,
+                password: hashPassword,
                 role
             }
 
@@ -70,8 +80,6 @@ export class UserBusiness{
                 throw new InvalidEmail();
               }
 
-            const id: string = generateId()
-
             const userDatabase = new UserDatabase();
             const user = await userDatabase.findUserByEmail(email);
 
@@ -79,8 +87,14 @@ export class UserBusiness{
                 throw new UserNotFound()
             }
 
-            if(user.password != password){
-                throw new PasswordIncorrect()
+            const isValidPassword: boolean = await hashManager.compare(
+                password,
+                user.password
+            );
+
+            if(!isValidPassword){
+                throw new InvalidPassword();
+                
             }
 
             const token = authenticator.generateToken({id: user.id, role:user.role})
