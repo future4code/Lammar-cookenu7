@@ -54,4 +54,14 @@ export class RecipeDatabase extends BaseDatabase{
             throw new CustomError(400, error.message)
         }
     }
+
+    deleteRecipe = async (id: GetRecipes)=>{
+        try{
+            await RecipeDatabase.connection("Recipes_Cookenu")
+            .delete()
+            .where({id: id.id})
+        }catch(error:any){
+            throw new CustomError(error.statusCode, error.message)
+        }
+    }
 }
