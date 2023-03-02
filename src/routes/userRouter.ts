@@ -10,6 +10,7 @@ userRouter.post("/login", userController.login)
 userRouter.get("/profile", userController.getUser)
 userRouter.post("/follow", userController.createFollow)
 userRouter.post("/unfollow", userController.unfollow)
+userRouter.get("/feed", userController.getFeed)
 
 
 

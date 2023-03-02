@@ -83,4 +83,25 @@ export class UserDatabase extends BaseDatabase{
             throw new Error(error.message)
         }
     }
+
+
+    getFeed = async(token: string)=>{
+        try{
+            const {id} = authenticator.getTokenData(token)
+
+            const queryResult = await UserDatabase.connection.raw(
+                `Select r.id, r.title, r.description, r.creation_date, u.id, u.name 
+                from Recipes_Cookenu AS r 
+                inner join User_Cookenu u ON u.id = r.author_id 
+                inner join Follow_Cookenu fo on fo.id_followed = u.id 
+                WHERE fo.id_following = "${id}"`
+            )
+            if(queryResult.length <1){
+                throw new UserNotFound
+            }
+            return queryResult
+        }catch(error:any){
+            throw new CustomError(error.statusCode, error.message)
+        }
+    }
 }

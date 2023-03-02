@@ -91,4 +91,21 @@ export class UserController{
             res.status(400).send(error.message || error.sqlMessage)
         }
     } 
+
+    getFeed = async(req: Request, res:Response)=>{
+        try{
+            const token = req.headers.authorization as string
+
+            if(!token){
+                throw new NotNullToken()
+            }
+
+            const userDatabase = new UserDatabase()
+            const user = await userDatabase.getFeed(token)
+
+            res.status(201).send(user[0])
+        }catch(error:any){
+            throw new CustomError(error.statusCode, error.message);
+        }
+    }
 }
