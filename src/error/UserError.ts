@@ -50,6 +50,6 @@ export class Unauthorized extends CustomError{
 }
 export class UserNotFound extends CustomError{
     constructor(){
-        super(400, "Usuário não localizado.")
+        super(404, "Usuário não localizado.")
     }
 }

@@ -54,7 +54,7 @@ export class UserController{
             const userDatabase = new UserDatabase()
             const user = await userDatabase.getUser(token)
 
-            res.status(201).send(user[0])
+            res.status(200).send(user[0])
         }catch(error:any){
             throw new CustomError(error.statusCode, error.message);
         }
@@ -70,7 +70,7 @@ export class UserController{
             const userBusiness = new UserBusiness()
             await userBusiness.createFollow(input)  
             
-            res.status(201).send({message: "Followed successfully"})
+            res.status(200).send({message: "Followed successfully"})
         }catch(error:any){
             res.status(400).send(error.message || error.sqlMessage)
         }
@@ -86,9 +86,30 @@ export class UserController{
             const userBusiness = new UserBusiness()
             const token = await userBusiness.unfollow(input)  
             
-            res.status(201).send({message: "Unfollowed successfully"})
+            res.status(200).send({message: "Unfollowed successfully"})
         }catch(error:any){
             res.status(400).send(error.message || error.sqlMessage)
         }
     } 
+
+    getFeed = async(req: Request, res:Response)=>{
+        try{
+            const token = req.headers.authorization as string
+
+            if(!token){
+                throw new NotNullToken()
+            }
+
+            const userDatabase = new UserDatabase()
+            const user = await userDatabase.getFeed(token)
+
+            if(user[0].length < 1){
+                res.status(200).send({message: `As pessoas que você segue ainda não postaram nenhuma receita.`})
+            }
+
+            res.status(200).send(user[0])
+        }catch(error:any){
+            throw new CustomError(error.statusCode, error.message);
+        }
+    }
 }

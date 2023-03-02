@@ -2,9 +2,9 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name": "Raphael",
-    "email": "raphael@email.com",
-    "password": "iloveftv"
+    "name": "Marlene",
+    "email": "marlene@email.com",
+    "password": "souvagalume"
 }
 
 ###
@@ -19,39 +19,43 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3003/user/profile
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiOTc1OGIzLWRmNTItNDYzMC1hYTJkLTFmMTU5Mjg4YWIwNiIsImlhdCI6MTY3Nzc2ODcxNSwiZXhwIjoxNjc3Nzg2NzE1fQ.4pLGiFNxx9uaBTscsQmy54ZkIz520TCrAF-Cl7VwC_U
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiOTc1OGIzLWRmNTItNDYzMC1hYTJkLTFmMTU5Mjg4YWIwNiIsImlhdCI6MTY3Nzc3NTk5NCwiZXhwIjoxNjc3NzkzOTk0fQ.U_Xy7Nq0yeztDeP087QEBDPe3vRTBBmupNUy2yttZ6U
 ###
 
 POST http://localhost:3003/recipe/create
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiOTc1OGIzLWRmNTItNDYzMC1hYTJkLTFmMTU5Mjg4YWIwNiIsImlhdCI6MTY3Nzc2ODcxNSwiZXhwIjoxNjc3Nzg2NzE1fQ.4pLGiFNxx9uaBTscsQmy54ZkIz520TCrAF-Cl7VwC_U
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIzYzE0ZGZiLWUwZjAtNDczOC04YjMxLTA1YjQxMTc1NTUyOSIsImlhdCI6MTY3Nzc3NDkzOSwiZXhwIjoxNjc3NzkyOTM5fQ.iWEDOFVc3zrp7sKShHTrxkK1JgUAz9T0S2kFqwQVuM0
 Content-Type: application/json
 
 {
-    "title": "Yakissoba",
-    "description": "Ingredientes: 100g de peito de frango, 100g de carne bovina, 1 pimentão verde, 1 pimentão amarelo, 1 pimentão vermelho, 1 brócolos, 2 cenouras grandes, Shoyo, 1 pacote de macarrão para yakissoba."
+    "title": "Panqueca de frango",
+    "description": "Ingredientes: 200g de peito de frango, Sal, pimenta do reino, orégano, 2 ovos, trigo, leite e fermento. Misture no liquidificador os ovos, trigo, leite, sal, pimenta do reino e orégano. Após tudo uniforme, insira o fermento e bata novamente. Cozinhe o frango ao seu gosto e desfie ele."
 }
 
 ###
 
-GET http://localhost:3003/recipe/0b4f6448-6437-4693-8df9-c32f46220b02
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiOTc1OGIzLWRmNTItNDYzMC1hYTJkLTFmMTU5Mjg4YWIwNiIsImlhdCI6MTY3Nzc2ODcxNSwiZXhwIjoxNjc3Nzg2NzE1fQ.4pLGiFNxx9uaBTscsQmy54ZkIz520TCrAF-Cl7VwC_U
+GET http://localhost:3003/recipe/15a528aa-0ad1-485c-b3ce-3380df2c4ac0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3Y2NmMzgxLTJiZTktNGY1Yy05ZGQ5LWNmYzkwZmU3ZDMzMiIsImlhdCI6MTY3Nzc3MDE3MCwiZXhwIjoxNjc3Nzg4MTcwfQ.h7o0aUfv2Mtv7sax87uTKh5YRiKI13tsNR4-_4bHVE0
 
 ###
 
 POST http://localhost:3003/user/follow
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDctNDRiMy1hZDlhLTliN2ZiN2IwNWIzNyIsImlhdCI6MTY3NzcyMTY0MiwiZXhwIjoxNjc3NzM5NjQyfQ.vaUByKIcBl7D5Ic7HsfA3hDaIKdU_JiXuOWpUc_bsVs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIzYzE0ZGZiLWUwZjAtNDczOC04YjMxLTA1YjQxMTc1NTUyOSIsImlhdCI6MTY3Nzc3OTU0NywiZXhwIjoxNjc3Nzk3NTQ3fQ.IC7fyZmkTC1CUKuoFYsBySP_7IlWAAk0Z5FagUzvMUI
 Content-Type: application/json
 
 {
-    "id_followed":"a9531aa3-6cac-4b33-8f3f-bb647f77ad29"
+    "id_followed":"e7ccf381-2be9-4f5c-9dd9-cfc90fe7d332"
 }
 
 ###
 POST http://localhost:3003/user/unfollow
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmYWNjZmY5LTM3MDctNDRiMy1hZDlhLTliN2ZiN2IwNWIzNyIsImlhdCI6MTY3NzcyMTY0MiwiZXhwIjoxNjc3NzM5NjQyfQ.vaUByKIcBl7D5Ic7HsfA3hDaIKdU_JiXuOWpUc_bsVs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIzYzE0ZGZiLWUwZjAtNDczOC04YjMxLTA1YjQxMTc1NTUyOSIsImlhdCI6MTY3Nzc3OTU0NywiZXhwIjoxNjc3Nzk3NTQ3fQ.IC7fyZmkTC1CUKuoFYsBySP_7IlWAAk0Z5FagUzvMUI
 Content-Type: application/json
 
 {
-    "id_followed":"0b9758b3-df52-4630-aa2d-1f159288ab06"
+    "id_followed":"e7ccf381-2be9-4f5c-9dd9-cfc90fe7d332"
 }
 
+###
+
+GET http://localhost:3003/user/feed
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiOTc1OGIzLWRmNTItNDYzMC1hYTJkLTFmMTU5Mjg4YWIwNiIsImlhdCI6MTY3Nzc4MTIzOCwiZXhwIjoxNjc3Nzk5MjM4fQ.urm1q0qIO0kGb0JmxIfRiy89k5Kj1XwKz2WqeW89C2k
