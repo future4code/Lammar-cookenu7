@@ -70,6 +70,8 @@ export class RecipeBusiness{
                 throw new Unauthorized()
             }
 
+            console.log(id)
+
             const editRecipeInput: EditRecipesInput={
                 id,
                 title,
