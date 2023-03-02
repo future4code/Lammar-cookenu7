@@ -104,7 +104,7 @@ export class UserController{
             const user = await userDatabase.getFeed(token)
 
             if(user[0].length < 1){
-                res.status(200).send({message: `Seus amigos ainda não postaram nenhuma receita.`})
+                res.status(200).send({message: `As pessoas que você segue ainda não postaram nenhuma receita.`})
             }
 
             res.status(200).send(user[0])
