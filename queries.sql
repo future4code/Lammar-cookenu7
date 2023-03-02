@@ -22,3 +22,5 @@ CREATE TABLE Follow_Cookenu (
     id_followed VARCHAR(255) NOT NULL,
     FOREIGN KEY (id_followed) REFERENCES User_Cookenu(id)
 );
+
+ALTER TABLE User_Cookenu ADD role ENUM("ADMIN", "NORMAL") NOT NULL DEFAULT "NORMAL"
