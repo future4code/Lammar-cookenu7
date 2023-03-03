@@ -65,9 +65,9 @@
     </li>
 </ol>
 
-## Tecnologias utilizadas:
+<h3> Tecnologias utilizadas:</h3>
 <strong>TypeScript, Node.js, MySQL.</strong>
 
-## Deploy: 
+<h3> Deploy:</h3> <p>https://cookenu7.onrender.com</p>
 
-## Documentação:
+<h3> Documentação:</h3>
