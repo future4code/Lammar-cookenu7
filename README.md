@@ -38,6 +38,26 @@
         <li>Title</li>
         <li>Description</li>
     </ul>
+    <li>
+        <h3><strong> Visualizar uma receita.</strong></h3>
+    </li>
+    <p>O usuário precisa informar o seu token e e o id correto da receita (via params)</p>
+    <li>
+        <h3><strong> Seguir um usuário</strong></h3>
+    </li>
+    <p>O usuário precisa informar o seu token via headers e o id do usuário que deseja seguir via body.</p>
+        <h3><strong> Deixar de seguir um usuário</strong></h3>
+    </li>
+    <p>O usuário precisa informar o seu token via headers e o id do usuário que deseja parar de seguir via body.</p>
+        <h3><strong> Visualizar as receitas das pessoas que o usuário segue</strong></h3>
+    </li>
+    <p> O usuário tem acesso ao feed, ontem é possivel ver as receitas de todas as pessoas que ele segue, basta informar seu token.</p>
+        <h3><strong> Deletar receita</strong></h3>
+    </li>
+    <p> Até o momento apenas o usuário com a role do tipo <strong>ADMIN</strong> tem permissão para deletar as contas.</p>
+
+    
+
 
     
    
